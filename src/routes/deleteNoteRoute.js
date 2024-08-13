@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-export const deleteNote = Router();
+export const deleteNoteRoute = Router();
 
-deleteNote.post("/deletenote", (req, res) => {
+deleteNoteRoute.post("/deletenote", (req, res) => {
   res.send("note Deleted!");
 });

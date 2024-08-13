@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-export const editNote = Router();
+export const editNoteRoute = Router();
 
-editNote.post("/editnote", (req, res) => {
+editNoteRoute.post("/editnote", (req, res) => {
   res.send("note edited!");
 });

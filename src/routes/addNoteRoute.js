@@ -1,7 +1,6 @@
 import { Router } from "express";
+import { addNote } from "../controllers/addNotes.js";
 
-export const addNote = Router();
+export const addNoteRoute = Router();
 
-addNote.post("/addnote", (req, res) => {
-  res.send("note Addes!");
-});
+addNoteRoute.post("/addnote", addNote);

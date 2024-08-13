@@ -10,9 +10,7 @@ app.use(express.json());
 
 app.use("/user", Routes.loginRoute);
 app.use("/user", Routes.signUpRoute);
-app.use("/notes", Routes.addNote);
-app.use("/notes", Routes.deleteNote);
-app.use("/notes", Routes.editNote);
-app.use("/notes", Routes.getNotes);
-
-connectDB();
+app.use("/notes", Routes.addNoteRoute);
+app.use("/notes", Routes.deleteNoteRoute);
+app.use("/notes", Routes.editNoteRoute);
+app.use("/notes", Routes.getNotesRoute);
