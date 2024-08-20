@@ -2,6 +2,8 @@ import bcrypt from "bcrypt";
 import { User } from "../schema/userSchema.js";
 import { connectDB } from "../config/connectDB.js";
 import { closeDbConnection } from "../utils/closeConnection.js";
+import jwt from "jsonwebtoken";
+import { secret } from "../Constants.js";
 
 export const login = async (req, res) => {
   const { email, password } = req.body;
@@ -17,7 +19,8 @@ export const login = async (req, res) => {
       if (!userPwd) {
         res.send("Incorrect Password");
       } else {
-        res.send("Login Sucess!");
+        const token = jwt.sign({ email: email }, secret, { expiresIn: "30d" });
+        res.json({ token, logedIN: true });
       }
     }
   } catch (e) {

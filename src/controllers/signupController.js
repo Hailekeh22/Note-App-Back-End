@@ -20,7 +20,7 @@ export const registerUser = async (req, res) => {
 
     res.send("Sucessfully Registerd");
   } catch (e) {
-    console.log(e);
+    console.log("Error Happend");
   } finally {
     await closeDbConnection();
   }

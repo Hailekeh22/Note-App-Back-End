@@ -9,3 +9,4 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 export const serverPort = process.env.SERVER_PORT;
 export const MongodbURI = process.env.MONGO_DB_URI;
+export const secret = process.env.JWT_SECRET;

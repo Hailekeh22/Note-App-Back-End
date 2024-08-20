@@ -1,7 +1,7 @@
 import { Router } from "express";
+import { getNotes } from "../controllers/getNotes.js";
+import { verifyToken } from "../middlewares/verifyToken.js";
 
 export const getNotesRoute = Router();
 
-getNotesRoute.get("/notes", (req, res) => {
-  res.send("all NOtes");
-});
+getNotesRoute.get("/allnotes", verifyToken, getNotes);
