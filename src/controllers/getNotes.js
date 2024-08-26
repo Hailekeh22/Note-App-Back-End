@@ -1,12 +1,22 @@
-import { verifyToken } from "../middlewares/verifyToken.js";
+import { connectDB } from "../config/connectDB.js";
+import { Notes } from "../schema/noteSchema.js";
+import { closeDbConnection } from "../utils/closeConnection.js";
 
 export const getNotes = async (req, res) => {
   const { email } = req.body;
 
-  await Notes.find({ email: email }).then((err, res) => {
-    if (err) {
-      console.log(err);
+  try {
+    await connectDB();
+    const notes = await Notes.find({ userEmail: email });
+
+    if (notes) {
+      res.send(notes);
+    } else {
+      res.send("No Items FOund");
     }
-    console.log(res);
-  });
+  } catch (e) {
+    console.log("error");
+  } finally {
+    closeDbConnection();
+  }
 };
