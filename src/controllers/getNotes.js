@@ -14,6 +14,8 @@ export const getNotes = async (req, res) => {
     } else {
       res.send("No Items FOund");
     }
+
+    return notes;
   } catch (e) {
     console.log("error");
   } finally {
