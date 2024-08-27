@@ -4,4 +4,4 @@ import { verifyToken } from "../middlewares/verifyToken.js";
 
 export const getNotesRoute = Router();
 
-getNotesRoute.get("/allnotes", verifyToken, getNotes);
+getNotesRoute.post("/allnotes", getNotes);
